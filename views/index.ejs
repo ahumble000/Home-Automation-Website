@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+<link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=Grenze+Gotisch:wght@500&family=Lilita+One&family=Lobster&family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Sacramento&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300&display=swap"
+    rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="page">
+            <div class="box box1">
+                
+                <div class="home">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                
+                <a href="/index">
+                    <div class="home_box">
+                        <div class="home_text">
+                            Dashboard                        
+                        </div>
+                        <div class="home_icon">
+                            <i class="fa-brands fa-dropbox"></i>
+                        </div>    
+                    </div>
+                </a>
+
+                <a href="/index2">
+                    <div class="home_box">
+                        <div class="home_text">
+                            Home               
+                        </div>
+                        <div class="home_icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <div class="home_box">
+                    <div class="home_text">
+                        Contact Us                        
+                    </div>
+                
+                    <div class="home_icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+                
+                <div class="home_box">
+                    <div class="home_text">
+                        Settings                       
+                    </div>
+                
+                    <div class="home_icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                </div>
+            
+            </div>
+            
+            
+            <div class="box box2">
+                <h4>Welcome <%=name%></h4>
+                <div class="topbar">
+                    <div class="text">
+                        <div class="time">9 : 30 AM</div>
+                        <div class="date">Thursday | 1 January, 2024 </div>
+                    </div>
+                    <div class="input">
+                        <input type="search" placeholder="Search for device">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="user">
+                        <img src="images/user-2.png" alt="user_image">
+                    </div>
+                    <div class="notify">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                </div>
+                <div class="bottombar">
+                    <div class="bottombar-data">
+                        <div class="bar-accessories">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="bar-accessories">
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <div class="bar-accessories">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                        <div class="bar-accessories">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div class="bar-accessories">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="bar-accessories add">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="containerbox containerbox1">
+                        <div class="box box1">
+                            <p class="toggleText">Off</p>
+                            <label class="switch">
+                                <input type="checkbox" class="toggleSwitch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="box box2">
+                            <p class="toggleText">Off</p>
+                            <label class="switch">
+                                <input type="checkbox" class="toggleSwitch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="box box3">
+                            <p class="toggleText">Off</p>
+                            <label class="switch">
+                                <input type="checkbox" class="toggleSwitch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="box box4">
+                            <p class="toggleText">Off</p>
+                            <label class="switch">
+                                <input type="checkbox" class="toggleSwitch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="containerbox containerbox2">
+                        <div class="row row1">
+                            <div class="temp">
+                                <div class="temp1">
+                                    27 C
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row2">
+                            <p class="toggleText">Off</p>
+                            <label class="switch">
+                                <input type="checkbox" class="toggleSwitch">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+        <!-- <form method="get" action="/logout">
+            <button type="submit">Logout</button>
+        </form>     -->
+        <script src="javascripts/script.js"></script>
+</body>
+</html>
