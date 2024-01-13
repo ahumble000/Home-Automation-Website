@@ -42,6 +42,8 @@ app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+//USER AUTHENTICATION
+
 const isAuthenticated = async (req, res, next) => {
 
     try {
@@ -64,11 +66,6 @@ const isAuthenticated = async (req, res, next) => {
 
 };
   
-app.get("/", isAuthenticated, (req, res) => {
-  res.render("index",{name : req.user.name});
-});
-
-
 app.get("/register",(req, res) => {
   res.render("register");
 });
@@ -80,10 +77,7 @@ app.get("/forgetpass",(req, res) => {
 });
 
 
-app.get('/index2', (req, res) => {
-  res.render('index2');
-});
-
+//REGISTERATION ROUTE
 app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -103,7 +97,7 @@ app.post("/register", async (req, res) => {
   
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 600000 * 100000000),
+      expires: new Date(Date.now() + 6 * 1000),
     });
   
     res.redirect("/");
@@ -116,6 +110,7 @@ app.post("/register", async (req, res) => {
   
 });
 
+//LOGIN ROUTE
 app.post("/login", async (req, res) => {
 
   try {
@@ -134,7 +129,7 @@ app.post("/login", async (req, res) => {
     
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 600000 * 100000000),
+      expires: new Date(Date.now() + 6 * 10000),
     });
     
     res.redirect("/");
@@ -147,6 +142,7 @@ app.post("/login", async (req, res) => {
   
 });
 
+//FORGET PASSWARD ROUTE
 app.post("/forgetpass", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -167,10 +163,55 @@ app.post("/forgetpass", async (req, res) => {
   }
   
 });
-app.get("/index", (req,res) => {
+
+//MAIN PAGE ROUTE
+
+const clearTokenAndRedirect = (req, res, next) => {
+  if (!req.user) {
     res.cookie("token", "", { expires: new Date(0), httpOnly: true });
     console.log(req.cookies);
-    res.redirect('/');
+    return res.redirect('/');
+  }
+
+  next();
+};
+
+app.get("/", isAuthenticated, (req, res) => {
+  res.render("index",{name : req.user.name});
+});
+
+
+// Routes
+app.get("/index", isAuthenticated, clearTokenAndRedirect, (req, res) => {
+  res.render("index", { name: req.user.name });
+});
+
+app.get("/index2", isAuthenticated, clearTokenAndRedirect, (req, res) => {
+  res.render('index2', { name: req.user.name });
+});
+
+app.get("/index3", isAuthenticated, clearTokenAndRedirect, (req, res) => {
+  res.render('index3', { name: req.user.name });
+});
+
+
+//ADMIN PANEL ROUTE
+app.get("/user",async(req, res) => {
+  let data = await User.find({})
+  res.render('admin',{data:data});
+});
+               
+//DELETE ROUTE
+app.get("/delete/:id",async(req, res) => {
+  try{
+      const {id} = req.params;
+      const deleteUser = await User.findOneAndDelete({ _id: id})
+      res.redirect('/user');  
+  }
+  catch(err){  
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+  }
 });
 
 const PORT = 2000;
