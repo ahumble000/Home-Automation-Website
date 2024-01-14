@@ -46,7 +46,7 @@ app.use(cookieParser());
 
 const isAuthenticated = async (req, res, next) => {
 
-    try {
+    try {                 
     
         const { token } = req.cookies;
         if (!token) {
