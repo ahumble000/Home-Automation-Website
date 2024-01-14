@@ -19,11 +19,13 @@
         }
 
         body {
+            width: 100%;
             font-family: 'Poppins', sans-serif;
             background-color: #f4f4f4;
         }
-
+        
         h1 {
+            width: 100%;
             background: linear-gradient(#141e30, #243b55);
             color: #fff;
             padding: 12px;
@@ -62,6 +64,32 @@
         td h2{
             color: #000;
         }
+
+
+        @media only screen and (min-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            table {
+                font-size: 1rem;
+            }
+
+            th,
+            td {
+                padding: 12px;
+                display: table-cell;
+                width: auto;
+                margin-bottom: 0;
+            }
+
+            th {
+                font-size: 1.2rem;
+            }
+        }
+
     </style>
 </head>
 <body>

@@ -24,7 +24,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 60px;
-  width: 410px;
+  max-width: 410px;
   padding: 25px 10px;
   background: rgba(0,0,0,.5);
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -39,6 +39,7 @@ body {
 .login-box .user-box {
   position: relative;
   width: 300px;
+  margin: auto;
 }
   
 .login-box .user-box input {
@@ -80,12 +81,13 @@ body {
   }
 
   .login-box form .submit-btn {
+    margin: auto;
     width: 300px;
     display: flex;
     justify-content: flex-end;
   }
 
-  .login-box form button {
+  .login-box form .submit-btn button {
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -100,6 +102,7 @@ body {
     background-color: transparent;
     border: none;
     outline: none;
+    margin-top: 10px;
 
   }
   
@@ -215,4 +218,23 @@ body {
   font-size: 15px;
   color: #03e9f4;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .login-box {
+      width: 90%;
+      padding: 30px 15px;
+  }
+
+  .login-box h2 {
+    font-size: 1.8rem;
+  }
+  
+  .login-box .user-box,
+  .login-box .submit-btn{
+    width: 260px;
+  }
+
+
+    
 }
