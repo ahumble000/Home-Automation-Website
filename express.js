@@ -98,7 +98,7 @@ app.post("/register", async (req, res) => {
   
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 60 * 1000),
+      expires: new Date(Date.now() + 60 * 10000),
     });
   
     res.redirect("/");
@@ -130,7 +130,7 @@ app.post("/login", async (req, res) => {
     
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 60 * 10000),
+      expires: new Date(Date.now() + 60 * 100000),
     });
     
     res.redirect("/");
