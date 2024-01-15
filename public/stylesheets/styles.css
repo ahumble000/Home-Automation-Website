@@ -49,6 +49,10 @@ html,body{
     padding: 10px;
 }
 
+.main .page .box1 a{
+    text-decoration: none;
+}
+
 .main .page .box1 .home{
     width: 55px;
     height: 55px;

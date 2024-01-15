@@ -15,6 +15,7 @@ mongoose.connect("mongodb://127.0.0.1:27017", {
 const userSchema = new mongoose.Schema({
   name: {
     type : String,
+    unique : true,
     required : true,
   },
 
@@ -97,7 +98,7 @@ app.post("/register", async (req, res) => {
   
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 6 * 1000),
+      expires: new Date(Date.now() + 60 * 1000),
     });
   
     res.redirect("/");
@@ -129,7 +130,7 @@ app.post("/login", async (req, res) => {
     
     res.cookie("token", token, {
       httpOnly: true,
-      expires: new Date(Date.now() + 6 * 10000),
+      expires: new Date(Date.now() + 60 * 10000),
     });
     
     res.redirect("/");

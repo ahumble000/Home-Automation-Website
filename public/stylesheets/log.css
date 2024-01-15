@@ -24,7 +24,7 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 60px;
-  max-width: 410px;
+  width: 410px;
   padding: 25px 10px;
   background: rgba(0,0,0,.5);
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
@@ -87,7 +87,7 @@ body {
     justify-content: flex-end;
   }
 
-  .login-box form .submit-btn button {
+  .login-box form button {
     position: relative;
     cursor: pointer;
     display: inline-block;
@@ -223,7 +223,7 @@ body {
 @media only screen and (max-width: 650px) {
   .login-box {
       width: 90%;
-      padding: 30px 15px;
+      padding: 30px 12px;
   }
 
   .login-box h2 {
