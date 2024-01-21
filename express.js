@@ -87,7 +87,7 @@ app.post("/register", async (req, res) => {
     if(user)  return res.redirect("/login");
 
     let userName = await User.findOne({name});
-    if(userName)  return res.render("register",{email : email,errorMessage : "User name already taken"});
+    if(userName)  return res.render("register",{email : email,errorMessage : "User name is already taken"});
          
     const hashPassword = await bcrypt.hash(password,10);
   
@@ -198,15 +198,50 @@ app.get("/index3", isAuthenticated, clearTokenAndRedirect, (req, res) => {
 
 //ADMIN PANEL ROUTE
 app.get("/user",async(req, res) => {
-  let data = await User.find({})
+  let data = await User.find()
   res.render('admin',{data:data});
 });
                
-//DELETE ROUTE
+//UPDATE ROUTE
+
+app.get("/updateuser/:id",async(req,res)=>{
+  const {id} = req.params;
+  const updateUser = await User.findOne({ _id: id});
+  res.render('updateuser',{user:updateUser});
+});
+   
+app.post("/replace/:id",async(req, res) => {
+  try{
+      const {name,email,password} = req.body;
+      const {id} = req.params;
+      const checkUserExits = await User.findOne({ _id: id});
+
+      let userName = await User.findOne({name,_id: { $ne: id }});
+      if(userName){
+        return res.render('updateuser',{user:checkUserExits,errorMessage : "Username is already taken"});
+      }
+      let userEmail = await User.findOne({email,_id: { $ne: id }});
+      if(userEmail){
+        return res.render('updateuser',{user:checkUserExits,errorMessage : "Email is already taken"});
+      }
+      const updateUser = await User.findByIdAndUpdate({_id:id},
+        {name,email,password},
+        {new:true});  
+
+
+      res.redirect('/user');  
+  }
+  catch(err){    
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+  }
+});
+
+//DELETE ROUTE     
 app.get("/delete/:id",async(req, res) => {
   try{
       const {id} = req.params;
-      const deleteUser = await User.findOneAndDelete({ _id: id})
+      const deleteUser = await User.findByIdAndDelete({_id:id})
       res.redirect('/user');  
   }
   catch(err){  

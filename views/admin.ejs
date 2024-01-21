@@ -101,7 +101,7 @@
                 <th>Username</th>
                 <th>Email</th>
                 <th>Delete</th>
-                <!-- <th>Upload</th> -->
+                <th>Update</th>
             </tr>
         </thead>
         <tbody>
@@ -112,7 +112,7 @@
                     <td><%= user.name %></td>
                     <td><%= user.email %></td>
                     <td><a href="/delete/<%=user._id %>">Remove</a></td>
-                    <!-- <td><%= user.upload %></td> -->
+                    <td><a href="/updateuser/<%=user._id %>">Update</a></td>
                 </tr>
             <% }); %>
             <% } else { %>

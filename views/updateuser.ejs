@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="stylesheets/log.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+<link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cookie&family=Grenze+Gotisch:wght@500&family=Lilita+One&family=Lobster&family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=Sacramento&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;1,300&display=swap"
+    rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main{
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  width: 410px;
+  padding: 25px 10px;
+  background: rgba(0,0,0,.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.login-box .user-box {
+  position: relative;
+  width: 300px;
+  margin: auto;
+}
+  
+.login-box .user-box input {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 17px;
+  color: #fff;
+  margin-bottom: 45px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  background-color: transparent;
+}
+
+.login-box .password .user-box .fa-solid{
+  cursor: pointer;
+  color: #fff;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 17px;
+  color: #fff;
+  pointer-events: none;
+  transition: all .5s;
+}
+  
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -24px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 16px;
+  }
+
+  .login-box form .submit-btn {
+    margin: auto;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .login-box form button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 1s ease-in;
+    letter-spacing: 4px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-top: 10px;
+
+  }
+  
+  .login-box button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 20px #03e9f4,
+                0 0 40px #03e9f4,
+                0 0 80px #03e9f4;
+  }
+  
+  .login-box button span {
+    position: absolute;
+    display: block;
+  }
+  
+  .login-box button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .login-box button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .login-box button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .login-box button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+
+.main .login-box form .error{
+  position: relative;
+  margin-top: 30px;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.main .login-box form .error p{
+  font-size: 13.5px;
+  color: #03e9f4;
+  text-decoration: none;
+}
+
+.main .login-box form .error a{
+  font-size: 15px;
+  color: #03e9f4;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .login-box {
+      width: 90%;
+      padding: 30px 12px;
+  }
+
+  .login-box h2 {
+    font-size: 1.8rem;
+  }
+  
+  .login-box .user-box,
+  .login-box .submit-btn{
+    width: 260px;
+  }
+
+
+    
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+      <div class="login-box">
+        
+        <h2>Update User!</h2>
+        
+        <form method="post" action="/replace/<%=user._id %>">
+          
+          <div class="user-box">
+            <input class="input" type="text" name="name" value="<%= user.name %>" required>
+            <label>Username</label>
+          </div>
+          
+          <div class="user-box">
+            <input class="input" type="email" name="email" value="<%= user.email %>" required>
+            <label>Email</label>
+          </div>
+          
+          <div class="password">
+            <div class="user-box">
+                <input class="input" type="password" name="password" id="password" required>
+                <i class="fa-solid fa-eye"></i>
+                <label>Password</label>
+            </div> 
+          </div>
+
+          <div class="submit-btn">
+            <button type="submit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Update
+              </button>
+          </div>
+       
+          <div class="error">
+            <p id="error"> <%= locals.errorMessage %> </p>
+          </div>
+          
+        </form>
+        
+        </div>    
+    </div>
+
+    <script src="javascripts/script.js"></script>
+</body>
+</html>
